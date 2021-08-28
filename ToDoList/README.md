@@ -1,7 +1,7 @@
-#ToDo List Application
+# ToDo List Application
 Completed on April 22th 2021 by Courtney Wilkerson in collaboration with Madeleine van Zuylen and Kevin Van
 
-##Application Description
+## Application Description
 This project is a command-line ToDo list application. The system will allow a user to add and
 track the status of their ToDos by due date, category, priority, and status
 (complete/incomplete).
@@ -15,13 +15,13 @@ This application assumes that the CSV column names will not change.
 The information in each column is enclosed in double quotes. It is possible that column entries
 may contain a comma. Some columns are considered optional and may not contain data. A cell that contains only “?” means that there is no value for this cell.
 
-###Example of sample data the user would find in the CSV:
+### Example of sample data the user would find in the CSV:
 
 “id”,”text”,”completed”,”due”,”priority”,”category”  
 "1","Finish HW9","false","8/2/2021","1","school"  
 "2","Mail passport application, photo","true","8/28/2021","?","?"
 
-##Application Functionality
+## Application Functionality
 The system supports the following functionality:  
 ● Add a new todo: The user must supply the information required by the Todo data
 structure. They can also choose to specify the optional information. When a new Todo is
@@ -36,7 +36,7 @@ Todos will be printed, but the user can supply additional arguments to customize
 &nbsp;&nbsp; ○ Sort the Todos by priority (ascending)  
 The two filter arguments can be combined but only one sort can be applied at a time.
 
-##Instructions for User
+## Instructions for User
 
 This program accepts the following command line arguments in any order:  
 **--csv-file <path/to/file>** The CSV file containing the
@@ -49,7 +49,7 @@ also be provided.
 **--completed** (Optional) Sets the completed
 status of a new todo to true.  
 **--due </due date>** (Optional) Sets the due date of a
-new todo. Date format needs to be mm/dd/yyyy: 03/22/2021
+new todo. Date format needs to be mm/dd/yyyy: 03/22/2021  
 **--priority <1, 2, or 3>** (Optional) Sets the priority of a
 new todo. The value can be 1, 2,
 or 3.  
