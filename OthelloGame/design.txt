@@ -1,0 +1,112 @@
+# Courtney Wilkerson, Aerilynn Nguyen, Phong Hoang
+
+Classes I will define: 
+- Tile
+- Tiles
+- Board
+- AI
+- GameController
+
+Tile:
+"This class initiates one tile object. "
+Tile methods: 
+    display(): Displays a tile to the screen when called. Color is green.
+    fill_color: property that returns a string indicating the color of the tile
+
+Tiles:
+"This class initiates a list of lists containing tile objects. This represents
+all tiles on the board, initially none, and interacts with the tile's colors.
+This class has access to the Tile class."
+Tiles methods:
+    get_all_tiles(): Puts a green tile in each column, row space on the board.
+        Does this by having a list of lists, each list representing a column,
+        each index in each list representing a row.
+    change_color(column, row, color): Finds a tile object at column, row position
+        passed in at the method call. Then changes the color to the color passed
+        in at the function call. Does this by creating a new tile object with desired
+        color and replacing old tile object at specified location.
+    starting_four_tiles(): Creates 4 tiles of alternating color in center of the board
+        regardless of board size, as long as it's nxn where n is even. 
+    
+
+Board:
+"This class draws the board and handles placing and flipping of tiles.
+This class has access to the tiles class."
+Board methods: 
+    count_colors(): Adds up the current number of white and back tiles
+    legal_moves_available(): Creates a list of tiles that are currently
+        green that are able to be turned to white or black based on if it
+        would be a legal move or not. May need to make two of these, one for
+        player's turn, one for ai turn.
+    legal_move(mouseX, mouseY): Checks that clicked space is in the
+        legal_moves_available list and returns True if so. (gets called in
+        mousePressed)
+    update(): Checks if the board is full of white/black tiles or all legal
+        moves have been made. Returns winner of the game and winning number
+        of tiles.
+    display(): Displays board, calls tiles methods to initiate game play and
+        calls board methods to check for end of game and legal moves.
+    control(mouseX, mouseY): Checks if square clicked is "empty" aka has a green
+        tile. If so, changes the color to black for the player_turn and changes
+        color to white if AI turn. ???? Do I need white for AI if I have a different
+        method for that??????
+    flip(tile or (column, row)): Loops through all tiles in the vacitity of the tile placed that
+        should change color. Generates a list of the tiles with column, row
+        location that should be flipped and calls change_color on each to opposite.
+    ai_turn(column, row): This method will take the column, row that the ai
+        class has decided is their best move and calls the change_color method
+        on that tile to change it to white. 
+    May need a method to ensure the player can not click until the AI has played their
+    turn. Something in control maybe where they cannot change color of a green tile
+    until it is their turn.
+
+AI:
+"This class acts as the AI that decides moves to make based on
+highest possible yeild of white tiles each turn. This class has
+access to the board class which has access to the tiles class."
+AI methods:
+    tile_flip_yeild(tile): Takes in a tile object that is a legal move and returns
+        the number of white tiles that will be on the board after the tile
+        is placed aka number of tiles flipped to white + num of current white
+        tiles. Does this by checking board vs tile space for which ones will
+        be flipped (hard part)
+    tile_count_dict(list): Takes in list of tiles that are legal moves to flip to
+        white and adds them as keys to dictionary with the values being from the
+        tile_flip_yeild method. ex {tile[3][2]: 4}
+    sort_tiles(): Returns a list of items sorted on the count, with the 
+        highest count first
+    best_move(list): Gets highest value from dictionary of tiles and yeilds and returns
+        the key paired with the largest value, or the column, row of that key. This is
+        the tile to be played by the AI. Just takes the first item in the sorted list
+        and returns the tile column, row associated with it.
+
+
+
+GameController:
+"This class displays the winner of the game and their number of tiles to the
+screen as well as prints it to the console when a winner is declared"
+GameController methods:
+    update(): Displays text declaring winner of game to screen as well as
+        number of winning tiles.
+    update_terminal(): Prints winner of game and winning number of tiles to
+        the terminal only once game is over.
+
+
+othello_game_starter psuedo code:
+- Begin with setup()
+- draw() calls board.display() which displays the nxn board to the screen,
+    places the center 4 tiles, and initiates all other tiles as green. 
+    Once a square is clicked by player, check legal_move in mousePressed and
+    if true, call board.control to change color of the green tile to black.
+    Flip approproiate tiles to black through the flip method.
+    Player's turn is over now and count_colors, board.update, and GameController
+    update are activated to see if the game is over and display winner if so.
+    If not, it is now the AI's turn. The AI looks at all legal moves, calcualtes
+    the best move for it, and then returns the tile it wants to change from green
+    to white. Flip() is then called, count_colors, board.update and GameController.update
+    are once again called.
+    This happens over and over until board.update sends a winner to GameController.update, 
+    which ends the game and displays winner.
+- mousePressed() handles the clicks and returns the x, y of the click.
+
+    

@@ -1,0 +1,23 @@
+I attempted to make my ai a bit smarter than just picking a random legal move.
+I did not study any Othello strategy so this ai is not extremely smart, but I did
+try to have it make the most optimal move each time.
+
+I did this by having a function that looks at each space on the board, decides
+if it is a legal move or not using my legal_move function, and then store the space
+coordinates in a dictionary as the key with the value being the number of tiles
+that would be flipped to white if that move is made.
+
+Then I "sorted the dictionary" by value so the largest value aka largest number of tiles
+to be flipped to white would be the first key value tuple in the sorted list. I then grab
+this tuple and say that it is the best move. 
+
+This is the tile the ai chooses to place each turn. It does work as I expected and has made playing
+the game as the player very challenging!
+
+The computer beats me and my friends most of the time. I've only won
+once by chance because I don't want to take the time to calculate my best move!
+
+I would love to improve on the intelligence of my ai, but I am not that familiar with the game
+Othello until now, so I would have to do more research.
+
+It works as well as I wanted it to.

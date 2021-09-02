@@ -1,0 +1,39 @@
+Tests for Othello Part 1:
+
+Here are the classes and methods for classes that I tested during 
+part 1 of this assignment:
+
+Tile:
+    test_contructor: made sure color, column, and row were initialized successfully
+    test_fill_color: tested property to make sure it returns the correct
+    string based on the color attribute of Tile.
+
+Tiles:
+    test_contructor: made sure color and n were initialized correctly and that
+        column_tiles and all_tiles were empty lists.
+    test_get_all_tiles: made sure the lists were filled with proper nxn amount
+        of tiles. column_tiles has length n and all_tiles has length n. Also made 
+        sure a specific tile object can be accessed by column, row indicies
+    test_change_color: made sure a tile object in a list of tile object would
+        be replaced with a new tile object of a different color.
+    test_starting_four_tiles: checked that after running this method, the tile
+        objects at their middle 4 column, row indicies had the correct colors.
+    
+
+Board:
+    test_contructor: made sure each parameter was being initialized correctly.
+    test_count_colors: checked that after calling starting_four_tiles, the 
+        number of white and black tiles were each equal to 2
+    test_update: made sure that for a 4x4 board, after calling starting_four_tiles,
+        the total_tiles != board_full. Tested that at this point, the winning_number == 0
+        and the white_wins, black_wins, and tie are all still False.
+
+GameController:
+    test_contructor: check that the parameters are initialized correctly and
+        that all starting winner bools are False. Also that winning_number == 0.
+    test_update_terminal: Checked that nothing was printed to the terminal unless
+        a winner bool was changed to True. Also that winning_number would be printed
+        to terminal.
+
+Because of all these tests, I am fully confident that part 1 of my Othello game works
+correctly and to it's fullest capability at its current state.
