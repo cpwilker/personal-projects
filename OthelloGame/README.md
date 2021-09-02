@@ -1,4 +1,4 @@
-#Othello Game
+# Othello Game
 Completed on December 17th 2020 by Courtney Wilkerson in design collaboration with Aerilynn Nguyen and Phong Hoang. All code was written by myself, Courtney Wilkerson.
 
 ## Application Description
