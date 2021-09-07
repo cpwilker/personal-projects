@@ -71,5 +71,5 @@ To see the app in action, go to https://yelpcamp-62093-wilkerson.herokuapp.com/
 * connect-flash
 
 ### Platforms
-Cloudinary
+Cloudinary  
 Heroku
